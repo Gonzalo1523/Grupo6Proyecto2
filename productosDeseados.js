@@ -25,11 +25,14 @@ botonAgregar.addEventListener('click', () => {
 	contenedorCards.appendChild(nuevaCard);
 	contadorId++;
 
+
 	const botonEliminar = nuevaCard.querySelector('.botonEliminar');
 	botonEliminar.addEventListener('click', () => {
 		const cardAEliminar = nuevaCard;
 		contenedorCards.removeChild(cardAEliminar);
 	});
-});
 
+	
+	
+});
 

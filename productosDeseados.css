@@ -6,8 +6,10 @@
 
 section{
 	background: var(--color-tercero);
+	border-radius: 20px;
+	width: auto;
 }
-section h2{
+body h2{
 	background: var(--color-primario);
 }
 
