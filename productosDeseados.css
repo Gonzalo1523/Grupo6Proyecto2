@@ -1,0 +1,16 @@
+:root{
+	--color-primario: #FFFFFF;
+	--color-secundario: #6F6F6F;
+	--color-tercero:  #BDBDBD;
+}
+
+section{
+	background: var(--color-tercero);
+}
+section h2{
+	background: var(--color-primario);
+}
+
+#cardEstilo{
+	background: var(--color-secundario);
+}

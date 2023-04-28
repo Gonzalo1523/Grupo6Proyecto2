@@ -13,12 +13,14 @@
 
 <body>
 	<!-- Comienzo de productos deseados -->
+	<button id="botonAgregar" type="button" class="btn btn-primary">Primary</button>
 	<section>
 		<h2 class="Encabezado">Productos Deseados</h2>
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-6 col-md-4 col-lg-3">
-					<div class="card">
+				<!-- Card a agregar con JS -->
+				<div id="cardAgregada" class="col-sm-6 col-md-4 col-lg-3">
+					<div id="cardEstilo" class="card">
 						<img src="..." class="card-img-top" alt="Imagen no Encontrada"
 							style="max-width: 100%; height: auto;">
 						<div class="card-body">
@@ -26,10 +28,11 @@
 							<p class="card-text">Descripcion de el producto</p>
 							<a href="#" class="btn btn-primary d-block">¡Comprar!</a>
 							<br>
-							<a href="#" class="btn btn-primary d-block">Eliminar Producto</a>
+							<a id="botonEliminar" href="#" class="btn btn-primary d-block">Eliminar Producto</a>
 						</div>
 					</div>
 				</div>
+				<!-- Card a agregar con JS -->
 			</div>
 		</div>
 	</section>
@@ -40,7 +43,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
 		crossorigin="anonymous"></script>
-		<script src="./productosDeseados.js"></script>
+	<script src="./productosDeseados.js"></script>
 </body>
 
 </html>
