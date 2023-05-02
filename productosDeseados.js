@@ -7,7 +7,7 @@ botonAgregar.addEventListener('click', () => {
 	const nuevaCard = document.createElement('div');
 	nuevaCard.classList.add('col-sm-6', 'col-md-4', 'col-lg-3');
 	nuevaCard.setAttribute('id', `card${contadorId}`);
-	
+
 	const cardContenido = `
     <div class="card bg-secondary text-white">
       <img src="..." class="card-img-top" alt="Imagen no Encontrada"
@@ -32,7 +32,5 @@ botonAgregar.addEventListener('click', () => {
 		contenedorCards.removeChild(cardAEliminar);
 	});
 
-	
-	
 });
 
