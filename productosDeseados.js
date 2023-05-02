@@ -1,5 +1,4 @@
 const botonAgregar = document.getElementById('botonAgregar');
-const agregarCard = document.getElementById('cardAgregada');
 const contenedorCards = document.getElementById('contenedorCards');
 let contadorId = 0;
 
