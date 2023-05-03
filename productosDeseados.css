@@ -4,15 +4,16 @@
 	--color-tercero:  #BDBDBD;
 }
 
-section{
+body h1{
 	background: var(--color-tercero);
-	border-radius: 20px;
-	width: auto;
 }
-body h2{
-	background: var(--color-primario);
+body thead{
+	background: var(--color-secundario);
 }
 
 #cardEstilo{
 	background: var(--color-secundario);
 }
+ tbody{
+	background-color: var(--color-tercero);
+ }
