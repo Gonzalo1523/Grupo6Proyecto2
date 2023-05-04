@@ -1,3 +1,8 @@
+import Producto from './Productos.json' assert { type: 'json' };
+
+localStorage.setItem("Productos",JSON.stringify(Producto.Productos))
+localStorage.setItem("Usuarios",JSON.stringify(Producto.Usuarios))
+
 const form = document.getElementById("formProducto");
 const tableBody = document.getElementById("tableBody");
 
@@ -31,6 +36,7 @@ const ActualizarTabla = () => {
                         </td>
                     </tr>`;
         }).join("");
+        console.log(tableBody);
     }
 };
 ActualizarTabla();
