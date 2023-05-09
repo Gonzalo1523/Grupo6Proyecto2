@@ -1,8 +1,3 @@
-import Producto from './Productos.json' assert { type: 'json' };
-
-localStorage.setItem("Productos",JSON.stringify(Producto.Productos))
-localStorage.setItem("Usuarios",JSON.stringify(Producto.Usuarios))
-
 const form = document.getElementById("formProducto");
 const tableBody = document.getElementById("tableBody");
 
@@ -23,20 +18,21 @@ const ActualizarTabla = () => {
 
     if (Productos != null) {
         tableBody.innerHTML = Productos.map((Producto, index) => {
-            return `<tr>
-                        <td>${Producto.nombre}</td>
-                        <td>${Producto.descripcion}</td>
-                        <td>${Producto.codigo}</td>
-                        <td class="text-break">${Producto.url}</td>
-                        <td>
-                            <div class="btn-group-vertical">
-                                <button type="button" class="btn btn-primary" onClick=EliminarProducto(${index})>Eliminar</button>
-                                <button type="button" class="btn btn-success" onClick=EditarProducto(${index})>Editar</button>
-                            </div>
-                        </td>
-                    </tr>`;
+            let tr = `
+            <tr>
+                <td>${Producto.nombre}</td>
+                <td>${Producto.descripcion}</td>
+                <td>${Producto.codigo}</td>
+                <td class="text-break">${Producto.url}</td> 
+                <td>
+                    <div class="btn-group-vertical">
+                        <button type="button" class="btn btn-primary" onClick=EliminarProducto(${index})>Eliminar</button>
+                        <button type="button" class="btn btn-success" onclick=EditarProducto(${index})>Editar</button>
+                    </div>
+                </td>
+            </tr>`
+            return tr;
         }).join("");
-        console.log(tableBody);
     }
 };
 ActualizarTabla();
@@ -50,6 +46,7 @@ const EliminarProducto = (index) => {
 };
 
 const EditarProducto = (index) => {
+    console.log(index); 
     let Productos = JSON.parse(localStorage.getItem("Productos"));
     let Producto = Productos.at(index);
 
@@ -88,13 +85,7 @@ const EditarProducto = (index) => {
 };
 
 const generarCodigo = () => {
-    let Productos = JSON.parse(localStorage.getItem("Productos"));
-    if(Productos != null && Productos.lenght != 0){
-        let ultimoCodigo = Math.max(...Productos.map((producto)=>{return parseInt(producto.codigo)}))
-        return ultimoCodigo + 1;
-    }else{
-        return 0;
-    }
+    return crypto.randomUUID();
 }
 
 form.addEventListener("submit", (evento) => {

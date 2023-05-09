@@ -1,4 +1,4 @@
-{   
+export const Producto = {   
     "Productos":[
         {
             "nombre": "taladro",
@@ -52,3 +52,6 @@
         }
     ]
 }
+
+localStorage.setItem("Productos",JSON.stringify(Producto.Productos))
+localStorage.setItem("Usuarios",JSON.stringify(Producto.Usuarios))
