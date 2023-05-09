@@ -1,6 +1,5 @@
-const botonAgregar = document.getElementById('botonAgregar');
+
 const contenedorCards = document.getElementById('contenedorCards');
-let contadorId = 0;
 import Productos from "./Productos.json" assert {type: 'json'}
 
 localStorage.setItem("Productos", JSON.stringify(Productos.Productos))
