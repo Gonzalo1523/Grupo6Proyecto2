@@ -7,7 +7,7 @@ localStorage.setItem("Productos", JSON.stringify(Productos.Productos))
 
 const ActualizarLista = () => {
 	let Productos = JSON.parse(localStorage.getItem("Productos"));
-	console.log(Productos);
+
 	//contenedorCards.innerHTML = Productos.map((producto) => {
 	let productoVista = Productos.map((producto) => {
 		let productoVIsta = `
