@@ -1,15 +1,14 @@
+const contenedorCards = document.getElementById("contenedorCards");
+import Productos from "./Productos.json" assert { type: "json" };
 
-const contenedorCards = document.getElementById('contenedorCards');
-import Productos from "./Productos.json" assert {type: 'json'}
-
-localStorage.setItem("Productos", JSON.stringify(Productos.Productos))
+localStorage.setItem("Productos", JSON.stringify(Productos.Productos));
 
 const ActualizarLista = () => {
-	let Productos = JSON.parse(localStorage.getItem("Productos"));
+  let Productos = JSON.parse(localStorage.getItem("Productos"));
 
-	//contenedorCards.innerHTML = Productos.map((producto) => {
-	let productoVista = Productos.map((producto) => {
-		let productoVIsta = `
+  //contenedorCards.innerHTML = Productos.map((producto) => {
+  let productoVista = Productos.map((producto) => {
+    let productoVIsta = `
 		<tr>
 			<td class="align-middle d-none d-md-table-cell text-center"><img src="${producto.url}" alt="Producto 1"></td>
 			<td class="align-middle">
@@ -24,16 +23,9 @@ const ActualizarLista = () => {
 			</div>
 			</td>
 		</tr>
-		`
-		return productoVIsta;
-		
-	}).join("")
-	contenedorCards.innerHTML = productoVista;
-}
-ActualizarLista()
-
-
-
-
-
-
+		`;
+    return productoVIsta;
+  }).join("");
+  contenedorCards.innerHTML = productoVista;
+};
+ActualizarLista();
