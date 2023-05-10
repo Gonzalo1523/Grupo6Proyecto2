@@ -1,24 +1,24 @@
-:root{
-	--color-primario: #FFFFFF;
-	--color-secundario: #6F6F6F;
-	--color-tercero:  #BDBDBD;
+:root {
+  --color-primario: #ffffff;
+  --color-secundario: #6f6f6f;
+  --color-tercero: #bdbdbd;
 }
 
-body h1{
-	background: var(--color-tercero);
+body h1 {
+  background: var(--color-tercero);
 }
-body thead{
-	background: var(--color-secundario);
+body thead {
+  background: var(--color-secundario);
 }
 
-#cardEstilo{
-	background: var(--color-secundario);
+#cardEstilo {
+  background: var(--color-secundario);
 }
- tbody{
-	background-color: var(--color-tercero);
- }
+tbody {
+  background-color: var(--color-tercero);
+}
 
- img {
-	width: 150px;
-	height: 150px;
-  }
+img {
+  width: 150px;
+  height: 150px;
+}

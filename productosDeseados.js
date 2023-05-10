@@ -1,15 +1,12 @@
-const contenedorCards = document.getElementById("contenedorCards");
-import Productos from "./Productos.json" assert { type: "json" };
-
-localStorage.setItem("Productos", JSON.stringify(Productos.Productos));
-
+// ...
+let contadorId = 0;
 const ActualizarLista = () => {
   let Productos = JSON.parse(localStorage.getItem("Productos"));
 
-  //contenedorCards.innerHTML = Productos.map((producto) => {
   let productoVista = Productos.map((producto) => {
+    contadorId++; 
     let productoVIsta = `
-		<tr>
+		<tr id="producto-${contadorId}"> <!-- Añade el id único al HTML -->
 			<td class="align-middle d-none d-md-table-cell text-center"><img src="${producto.url}" alt="Producto 1"></td>
 			<td class="align-middle">
 				<h5 class="mb-0">${producto.nombre} 1</h5>
@@ -20,10 +17,12 @@ const ActualizarLista = () => {
 		    <div class= "btn-group-vertical">
 			    <button class="btn btn-primary">Comprar</button>
 				<button class="btn btn-danger">Eliminar </button>
+				<button class="btn btn-primary">Enviar </button>
 			</div>
 			</td>
 		</tr>
 		`;
+
     return productoVIsta;
   }).join("");
   contenedorCards.innerHTML = productoVista;
