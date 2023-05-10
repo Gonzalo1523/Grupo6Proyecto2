@@ -17,3 +17,8 @@ body thead{
  tbody{
 	background-color: var(--color-tercero);
  }
+
+ img {
+	width: 150px;
+	height: 150px;
+  }
