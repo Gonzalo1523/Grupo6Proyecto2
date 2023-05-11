@@ -18,13 +18,14 @@ const AgregarProducto = (Producto) => {
 const limpiarTabla = () =>{
     for(let i = 0; i < tableBody.children.length; i++){
         let hijo = tableBody.children[i];
-        let elemento = tableBody.removeChild(hijo)
+        console.log(hijo);
+        tableBody.removeChild(hijo)
     }
 }
 
 const ActualizarTabla = () => {
     let Productos = JSON.parse(localStorage.getItem("Productos"))
-    limpiarTabla()
+    
 
     if (Productos != null) {
         Productos.forEach((Producto, index) => {
@@ -49,7 +50,8 @@ const ActualizarTabla = () => {
                     Productos.splice(index, 1);
             
                     localStorage.setItem("Productos", JSON.stringify(Productos));
-                    ActualizarTabla();
+
+                    tableBody.removeChild(tr)
                 }
             };;
 
@@ -65,6 +67,8 @@ const ActualizarTabla = () => {
                     document.getElementById("Descripcion").value = Producto.descripcion;
                     document.getElementById("url").value = Producto.url;
                     document.getElementById("Codigo").value = Producto.codigo;
+                    document.getElementById("Categoria").value = Producto.categoria;
+                    document.getElementById("Precio").value = Producto.precio;
             
                     document.getElementById("btnGuardar").style.display = 'none';
                     let editar = document.getElementsByClassName("Editar");
@@ -78,6 +82,9 @@ const ActualizarTabla = () => {
                         Producto.descripcion = document.getElementById("Descripcion").value;
                         Producto.Codigo = Producto.codigo;
                         Producto.url = document.getElementById("url").value;
+
+                        Producto.categoria = document.getElementById("Categoria").value;
+                        Producto.precio = document.getElementById("Precio").value;
             
                         Productos[index] = Producto;
                         localStorage.setItem("Productos", JSON.stringify(Productos));
@@ -86,6 +93,8 @@ const ActualizarTabla = () => {
                         document.getElementById("NombreProducto").value = "";
                         document.getElementById("Descripcion").value = "";
                         document.getElementById("url").value = "";
+                        document.getElementById("Categoria").value = "";
+                        document.getElementById("Precio").value = "";
             
                         Array.from(editar).forEach((elemento) => {
                             elemento.style.display = 'none'
@@ -108,6 +117,7 @@ const ActualizarTabla = () => {
             tableBody.appendChild(tr)
         })
     }
+    limpiarTabla()
 };
 ActualizarTabla();
 
