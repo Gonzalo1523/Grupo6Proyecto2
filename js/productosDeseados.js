@@ -1,11 +1,13 @@
 // ...
 let contadorId = 0;
 const ActualizarLista = () => {
-  let Productos = JSON.parse(localStorage.getItem("Productos"));
+	let Productos = JSON.parse(localStorage.getItem("Productos"));
+	let ProductosFavoritos = Productos.filter((Producto) => (Producto.favorito != undefined && Producto.favorito))
 
-  let productoVista = Productos.map((producto) => {
-    contadorId++; 
-    let productoVIsta = `
+	console.log(ProductosFavoritos);
+	let productoVista = ProductosFavoritos.map((producto) => {
+		contadorId++;
+		let productoVIsta = `
 		<tr id="producto-${contadorId}"> <!-- Añade el id único al HTML -->
 			<td class="align-middle d-none d-md-table-cell text-center"><img src="${producto.url}" alt="Producto 1"></td>
 			<td class="align-middle">
@@ -23,8 +25,8 @@ const ActualizarLista = () => {
 		</tr>
 		`;
 
-    return productoVIsta;
-  }).join("");
-  contenedorCards.innerHTML = productoVista;
+		return productoVIsta;
+	}).join("");
+	contenedorCards.innerHTML = productoVista;
 };
 ActualizarLista();

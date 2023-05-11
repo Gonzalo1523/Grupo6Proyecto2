@@ -1,4 +1,4 @@
-{   
+const Producto = {   
     "Productos":[
         {
             "nombre": "Taladro",
@@ -159,3 +159,6 @@
         }
     ]
 }
+
+localStorage.setItem("Productos",JSON.stringify(Producto.Productos))
+localStorage.setItem("Usuarios",JSON.stringify(Producto.Usuarios))
