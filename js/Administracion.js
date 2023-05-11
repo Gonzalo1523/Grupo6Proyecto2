@@ -1,5 +1,7 @@
 const form = document.getElementById("formProducto");
 const tableBody = document.getElementById("tableBody");
+const tableHead = document.getElementById("tableHead");
+let atributosVisibles = ["nombre", "codigo", "categoria", "descripcion", "precio"]
 
 const AgregarProducto = (Producto) => {
     let Productos = JSON.parse(localStorage.getItem("Productos"));
@@ -13,76 +15,113 @@ const AgregarProducto = (Producto) => {
     }
 };
 
+const limpiarTabla = () =>{
+    for(let i = 0; i < tableBody.children.length; i++){
+        let hijo = tableBody.children[i];
+        let elemento = tableBody.removeChild(hijo)
+    }
+}
+
 const ActualizarTabla = () => {
-    let Productos = JSON.parse(localStorage.getItem("Productos"));
+    let Productos = JSON.parse(localStorage.getItem("Productos"))
+    limpiarTabla()
 
     if (Productos != null) {
-        tableBody.innerHTML = Productos.map((Producto, index) => {
-            let tr = `
-            <tr>
-                <td>${Producto.nombre}</td>
-                <td>${Producto.descripcion}</td>
-                <td>${Producto.codigo}</td>
-                <td class="text-break">${Producto.url}</td> 
-                <td>
-                    <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-primary" onClick=EliminarProducto(${index})>Eliminar</button>
-                        <button type="button" class="btn btn-success" onclick=EditarProducto(${index})>Editar</button>
-                    </div>
-                </td>
-            </tr>`
-            return tr;
-        }).join("");
+        Productos.forEach((Producto, index) => {
+            let tr = document.createElement("tr")
+            for (let key in Producto) {
+                if (atributosVisibles.find((atributo) => atributo == key) != undefined) {
+                    let td = document.createElement("td")
+                    td.textContent = Producto[key]
+                    tr.appendChild(td)
+                }
+            }
+
+            let buttonGroup = document.createElement("div")
+            buttonGroup.className = "btn-group-vertical"
+
+            let buttonEliminar = document.createElement("button")
+            buttonEliminar.textContent = "Eliminar"
+            buttonEliminar.className = "btn btn-danger"
+            buttonEliminar.onclick = (index) => {
+                if (index != 0) {
+                    let Productos = JSON.parse(localStorage.getItem("Productos"));
+                    Productos.splice(index, 1);
+            
+                    localStorage.setItem("Productos", JSON.stringify(Productos));
+                    ActualizarTabla();
+                }
+            };;
+
+            let buttonEditar = document.createElement("button")
+            buttonEditar.textContent = "Editar"
+            buttonEditar.className = "btn btn-success"
+            buttonEditar.onclick = (index) => {
+                if (index != 0) {
+                    let Productos = JSON.parse(localStorage.getItem("Productos"));
+                    let Producto = Productos.at(index);
+            
+                    document.getElementById("NombreProducto").value = Producto.nombre;
+                    document.getElementById("Descripcion").value = Producto.descripcion;
+                    document.getElementById("url").value = Producto.url;
+                    document.getElementById("Codigo").value = Producto.codigo;
+            
+                    document.getElementById("btnGuardar").style.display = 'none';
+                    let editar = document.getElementsByClassName("Editar");
+            
+                    Array.from(editar).forEach((elemento) => {
+                        elemento.style.display = 'block'
+                    })
+            
+                    editar[1].onclick = () => {
+                        Producto.nombre = document.getElementById("NombreProducto").value;
+                        Producto.descripcion = document.getElementById("Descripcion").value;
+                        Producto.Codigo = Producto.codigo;
+                        Producto.url = document.getElementById("url").value;
+            
+                        Productos[index] = Producto;
+                        localStorage.setItem("Productos", JSON.stringify(Productos));
+                        ActualizarTabla();
+            
+                        document.getElementById("NombreProducto").value = "";
+                        document.getElementById("Descripcion").value = "";
+                        document.getElementById("url").value = "";
+            
+                        Array.from(editar).forEach((elemento) => {
+                            elemento.style.display = 'none'
+                        })
+            
+                        document.getElementById("btnGuardar").style.display = 'block';
+                    };
+                }
+            
+            };;
+
+            buttonGroup.appendChild(buttonEliminar)
+            buttonGroup.appendChild(buttonEditar)
+
+            let td = document.createElement("td")
+            td.appendChild(buttonGroup);
+
+            tr.appendChild(td)
+
+            tableBody.appendChild(tr)
+        })
     }
 };
 ActualizarTabla();
 
-const EliminarProducto = (index) => {
-    let Productos = JSON.parse(localStorage.getItem("Productos"));
-    Productos.splice(index, 1);
-
-    localStorage.setItem("Productos", JSON.stringify(Productos));
-    ActualizarTabla();
-};
-
-const EditarProducto = (index) => {
-    console.log(index); 
-    let Productos = JSON.parse(localStorage.getItem("Productos"));
-    let Producto = Productos.at(index);
-
-    document.getElementById("NombreProducto").value = Producto.nombre;
-    document.getElementById("Descripcion").value = Producto.descripcion;
-    document.getElementById("url").value = Producto.url;
-    document.getElementById("Codigo").value = Producto.codigo;
-
-    document.getElementById("btnGuardar").style.display = 'none';
-    let editar = document.getElementsByClassName("Editar");
-
-    Array.from(editar).forEach((elemento) => {
-        elemento.style.display = 'block' 
+const generarHead = () => {
+    let tr = document.createElement("tr")
+    atributosVisibles.forEach((atributo) => {
+        let td = document.createElement("th")
+        td.textContent = atributo
+        tr.appendChild(td)
     })
 
-    editar[1].onclick = () => {
-        Producto.nombre = document.getElementById("NombreProducto").value;
-        Producto.descripcion = document.getElementById("Descripcion").value;
-        Producto.Codigo = Producto.codigo;
-        Producto.url = document.getElementById("url").value;
-
-        Productos[index] = Producto;
-        localStorage.setItem("Productos", JSON.stringify(Productos));
-        ActualizarTabla();
-
-        document.getElementById("NombreProducto").value = "";
-        document.getElementById("Descripcion").value = "";
-        document.getElementById("url").value = "";
-
-        Array.from(editar).forEach((elemento) => {
-            elemento.style.display = 'none' 
-        })
-
-        document.getElementById("btnGuardar").style.display = 'block';
-    };
-};
+    tableHead.appendChild(tr)
+}
+generarHead();
 
 const generarCodigo = () => {
     return crypto.randomUUID();
