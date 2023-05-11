@@ -24,7 +24,7 @@ function mostrarCard() {
         <div class="card-footer">
             <button class="btn btn-primary" onClick=mostrarMensaje()>Agregar al Carrito</button>
             <button class="btn btn-warning" onClick=seleccionarProducto(${Producto.codigo})>Favoritos</button>
-            <button class="btn btn-success" onClick=seleccionarProducto(${Producto.codigo})>Comprar</button>
+            <button class="btn btn-success">Comprar</button>
         </div>
     </div>
     </div>`;
