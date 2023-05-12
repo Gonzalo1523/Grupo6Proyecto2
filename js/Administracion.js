@@ -15,20 +15,11 @@ const AgregarProducto = (Producto) => {
     }
 };
 
-const limpiarTabla = () =>{
-    for(let i = 0; i < tableBody.children.length; i++){
-        let hijo = tableBody.children[i];
-        console.log(hijo);
-        tableBody.removeChild(hijo)
-    }
-}
-
 const ActualizarTabla = () => {
     let Productos = JSON.parse(localStorage.getItem("Productos"))
-    
-
+    tableBody.innerHTML = "";
     if (Productos != null) {
-        Productos.forEach((Producto, index) => {
+        Productos.forEach((Producto) => {
             let tr = document.createElement("tr")
             for (let key in Producto) {
                 if (atributosVisibles.find((atributo) => atributo == key) != undefined) {
@@ -44,15 +35,19 @@ const ActualizarTabla = () => {
             let buttonEliminar = document.createElement("button")
             buttonEliminar.textContent = "Eliminar"
             buttonEliminar.className = "btn btn-danger"
-            buttonEliminar.onclick = (index) => {
-                if (index != 0) {
-                    let Productos = JSON.parse(localStorage.getItem("Productos"));
-                    Productos.splice(index, 1);
-            
-                    localStorage.setItem("Productos", JSON.stringify(Productos));
+            buttonEliminar.onclick = () => {
 
-                    tableBody.removeChild(tr)
-                }
+                let Productos = JSON.parse(localStorage.getItem("Productos"));
+                let index = Productos.findIndex((elemento)=> elemento.codigo == Producto.codigo)
+
+                console.log(index);
+
+                Productos.splice(index, 1);
+
+                localStorage.setItem("Productos", JSON.stringify(Productos));
+
+                tableBody.removeChild(tr)
+
             };;
 
             let buttonEditar = document.createElement("button")
@@ -62,21 +57,21 @@ const ActualizarTabla = () => {
                 if (index != 0) {
                     let Productos = JSON.parse(localStorage.getItem("Productos"));
                     let Producto = Productos.at(index);
-            
+
                     document.getElementById("NombreProducto").value = Producto.nombre;
                     document.getElementById("Descripcion").value = Producto.descripcion;
                     document.getElementById("url").value = Producto.url;
                     document.getElementById("Codigo").value = Producto.codigo;
                     document.getElementById("Categoria").value = Producto.categoria;
                     document.getElementById("Precio").value = Producto.precio;
-            
+
                     document.getElementById("btnGuardar").style.display = 'none';
                     let editar = document.getElementsByClassName("Editar");
-            
+
                     Array.from(editar).forEach((elemento) => {
                         elemento.style.display = 'block'
                     })
-            
+
                     editar[1].onclick = () => {
                         Producto.nombre = document.getElementById("NombreProducto").value;
                         Producto.descripcion = document.getElementById("Descripcion").value;
@@ -85,25 +80,25 @@ const ActualizarTabla = () => {
 
                         Producto.categoria = document.getElementById("Categoria").value;
                         Producto.precio = document.getElementById("Precio").value;
-            
+
                         Productos[index] = Producto;
                         localStorage.setItem("Productos", JSON.stringify(Productos));
                         ActualizarTabla();
-            
+
                         document.getElementById("NombreProducto").value = "";
                         document.getElementById("Descripcion").value = "";
                         document.getElementById("url").value = "";
                         document.getElementById("Categoria").value = "";
                         document.getElementById("Precio").value = "";
-            
+
                         Array.from(editar).forEach((elemento) => {
                             elemento.style.display = 'none'
                         })
-            
+
                         document.getElementById("btnGuardar").style.display = 'block';
                     };
                 }
-            
+
             };;
 
             buttonGroup.appendChild(buttonEliminar)
@@ -117,7 +112,6 @@ const ActualizarTabla = () => {
             tableBody.appendChild(tr)
         })
     }
-    limpiarTabla()
 };
 ActualizarTabla();
 
