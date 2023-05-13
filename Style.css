@@ -18,6 +18,20 @@ footer{
 	width: auto;
 
   }
+  .video {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 2rem;
+    padding-top: 2rem;
+    box-sizing: border-box;
+
+}
+
+#videoh{
+    margin: 0;
+    padding: 0;
+    background-color: #050507;
+}
 
 
 	
