@@ -1,5 +1,23 @@
+.container{
+display: flex;
+justify-content: center;	
+}
+body{
+	background-image: url();
+}
 footer{
 		position: absolute;
 		width: 100%;
 		bottom: 1rem;
 }
+.card {
+	margin-bottom: 10px;
+	margin: 0 5px;
+  }
+  .card img {
+	width: auto;
+
+  }
+
+
+	
