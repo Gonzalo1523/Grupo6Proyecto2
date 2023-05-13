@@ -76,7 +76,7 @@
                 </ul>
             </div>
         </div>
-        
+
     </nav>
 
     <main class="container my-3">
@@ -91,7 +91,15 @@
                             <label class="form-label col-auto" for="NombreProducto">Nombre del producto</label>
                         </div>
                         <div class="col-10">
-                            <input class="form-control col-auto" type="text" id="NombreProducto">
+                            <input 
+                                class="form-control col-auto"   
+                                type="text" 
+                                id="NombreProducto"
+                                pattern="([A-Za-z0-9].[^%&$/#=]){5,}"
+                                maxlength="50"
+                                title="Debe escribir solo con mayusculas"
+                                required
+                            >
                         </div>
                     </div>
                     <div class="row d-flex align-items-center">
@@ -99,53 +107,74 @@
                             <label class="form-label col-auto" for="Descripcion">Descripcion</label>
                         </div>
                         <div class="col-10">
-                            <textarea id="Descripcion" class="form-control"></textarea>
+                            <textarea 
+                                id="Descripcion" 
+                                class="form-control" 
+                                maxlength="200" 
+                                required></textarea>
                         </div>
                     </div>
+
                     <div class="row mt-2 d-flex align-items-center">
                         <div class="col-2 text-end">
                             <label class="form-label col-auto" for="url">Imagen</label>
                         </div>
                         <div class="col-10">
-                            <input type="url" class="form-control" id="url">
+                            <input 
+                                type="url" 
+                                class="form-control" 
+                                id="url"
+                                required
+                            >
                         </div>
                     </div>
-
 
                     <div class="row mt-2 d-flex align-items-center">
                         <div class="col-2 text-end">
                             <label class="form-label col-auto" for="Categoria">Categoria</label>
                         </div>
                         <div class="col-10">
-                            <input type="text" class="form-control" id="Categoria">
+                            <input 
+                                type="text" 
+                                class="form-control" 
+                                id="Categoria"
+                            >
                         </div>
                     </div>
+
                     <div class="row mt-2 d-flex align-items-center">
                         <div class="col-2 text-end">
                             <label class="form-label col-auto" for="Precio">Precio</label>
                         </div>
                         <div class="col-10">
-                            <input type="text" class="form-control" id="Precio">
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input 
+                                    type="number" 
+                                    class="form-control" 
+                                    id="Precio"
+                                    max="999999"
+                                    required
+                                >
+                            </div>
                         </div>
                     </div>
-
-
-                    <div class="Editar">
+                    <div id="Codigo">
                         <div class="row mt-2 d-flex align-items-center">
                             <div class="col-2 text-end">
-                                <label class="form-label col-auto" for="Codigo">Codigo</label>
+                                <label class="form-label col-auto" for="CodigoInput">Codigo</label>
                             </div>
                             <div class="col-10">
-                                <input type="text" class="form-control" id="Codigo" disabled>
+                                <input type="text" class="form-control" id="CodigoInput" disabled>
                             </div>
                         </div>
                     </div>
+
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-between">
                         <button class="btn btn-secondary">cancelar</button>
                         <button class="btn btn-success" type="submit" id="btnGuardar">Guardar</button>
-                        <button class="btn btn-success Editar" type="button">Editar</button>
                     </div>
                 </div>
             </form>
@@ -155,15 +184,14 @@
         <div class="row mt-2 overflow-scroll">
             <table class="table table-striped text-center align-middle">
                 <thead id="tableHead">
-                    
                 </thead>
                 <tbody id="tableBody">
                 </tbody>
             </table>
         </div>
-        
+
     </main>
-    
+
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -215,9 +243,9 @@
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
 
+    <script type="module" src="../Repositorio.js"></script>
     <script src="../js/Administracion.js"></script>
 
-    <script type="module" src="../Repositorio.js"></script>
 
 </body>
 

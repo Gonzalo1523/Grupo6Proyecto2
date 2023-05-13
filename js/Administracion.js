@@ -18,13 +18,17 @@ const AgregarProducto = (Producto) => {
 const ActualizarTabla = () => {
     let Productos = JSON.parse(localStorage.getItem("Productos"))
     tableBody.innerHTML = "";
-    if (Productos != null) {
+    if (Productos != null && Productos.length != 0) {
         Productos.forEach((Producto) => {
             let tr = document.createElement("tr")
             for (let key in Producto) {
                 if (atributosVisibles.find((atributo) => atributo == key) != undefined) {
                     let td = document.createElement("td")
-                    td.textContent = Producto[key]
+                    if(key == "precio"){
+                        td.textContent = `$${Producto[key]}`
+                    }else{
+                        td.textContent = Producto[key]
+                    }
                     tr.appendChild(td)
                 }
             }
@@ -35,71 +39,33 @@ const ActualizarTabla = () => {
             let buttonEliminar = document.createElement("button")
             buttonEliminar.textContent = "Eliminar"
             buttonEliminar.className = "btn btn-danger"
-            buttonEliminar.onclick = () => {
 
+            buttonEliminar.onclick = () => {
                 let Productos = JSON.parse(localStorage.getItem("Productos"));
                 let index = Productos.findIndex((elemento)=> elemento.codigo == Producto.codigo)
-
-                console.log(index);
-
                 Productos.splice(index, 1);
-
                 localStorage.setItem("Productos", JSON.stringify(Productos));
-
                 tableBody.removeChild(tr)
-
             };;
 
             let buttonEditar = document.createElement("button")
             buttonEditar.textContent = "Editar"
             buttonEditar.className = "btn btn-success"
-            buttonEditar.onclick = (index) => {
-                if (index != 0) {
-                    let Productos = JSON.parse(localStorage.getItem("Productos"));
-                    let Producto = Productos.at(index);
 
-                    document.getElementById("NombreProducto").value = Producto.nombre;
-                    document.getElementById("Descripcion").value = Producto.descripcion;
-                    document.getElementById("url").value = Producto.url;
-                    document.getElementById("Codigo").value = Producto.codigo;
-                    document.getElementById("Categoria").value = Producto.categoria;
-                    document.getElementById("Precio").value = Producto.precio;
+            buttonEditar.onclick = () => {
+                let Productos = JSON.parse(localStorage.getItem("Productos"));
 
-                    document.getElementById("btnGuardar").style.display = 'none';
-                    let editar = document.getElementsByClassName("Editar");
+                let ProductoLS = Productos.find((ProductoLS)=>ProductoLS.codigo == Producto.codigo)
 
-                    Array.from(editar).forEach((elemento) => {
-                        elemento.style.display = 'block'
-                    })
+                document.getElementById("NombreProducto").value = ProductoLS.nombre;
+                document.getElementById("Descripcion").value = ProductoLS.descripcion;
+                document.getElementById("url").value = ProductoLS.url;
+                document.getElementById("Categoria").value = ProductoLS.categoria;
+                document.getElementById("Precio").value = ProductoLS.precio;
+                document.getElementById("CodigoInput").value = ProductoLS.codigo;
 
-                    editar[1].onclick = () => {
-                        Producto.nombre = document.getElementById("NombreProducto").value;
-                        Producto.descripcion = document.getElementById("Descripcion").value;
-                        Producto.Codigo = Producto.codigo;
-                        Producto.url = document.getElementById("url").value;
-
-                        Producto.categoria = document.getElementById("Categoria").value;
-                        Producto.precio = document.getElementById("Precio").value;
-
-                        Productos[index] = Producto;
-                        localStorage.setItem("Productos", JSON.stringify(Productos));
-                        ActualizarTabla();
-
-                        document.getElementById("NombreProducto").value = "";
-                        document.getElementById("Descripcion").value = "";
-                        document.getElementById("url").value = "";
-                        document.getElementById("Categoria").value = "";
-                        document.getElementById("Precio").value = "";
-
-                        Array.from(editar).forEach((elemento) => {
-                            elemento.style.display = 'none'
-                        })
-
-                        document.getElementById("btnGuardar").style.display = 'block';
-                    };
-                }
-
-            };;
+                document.getElementById('Codigo').style.display = "block";
+            };
 
             buttonGroup.appendChild(buttonEliminar)
             buttonGroup.appendChild(buttonEditar)
@@ -134,21 +100,35 @@ const generarCodigo = () => {
 form.addEventListener("submit", (evento) => {
     evento.preventDefault();
 
-    let codigo = generarCodigo();
-
     const Producto = {
         nombre: evento.target[0].value,
-        descripcion: evento.target[1].value,
+        codigo: evento.target[5].value,
         url: evento.target[2].value,
-        codigo: codigo,
+        categoria: evento.target[3].value,
+        descripcion: evento.target[1].value,
+        precio: evento.target[4].value,
     };
 
-    AgregarProducto(Producto);
-    ActualizarTabla();
+    if(Producto.codigo == ""){
+        let Productos = JSON.parse(localStorage.getItem("Productos"));
+        Producto.codigo = generarCodigo()
+        Productos.push(Producto)
+        localStorage.setItem("Productos", JSON.stringify(Productos));
+        ActualizarTabla();
+    }else{
+        let Productos = JSON.parse(localStorage.getItem("Productos"));
+        let index = Productos.findIndex((producto)=>producto.codigo==Producto.codigo)
+        Productos[index]=Producto;
+        localStorage.setItem("Productos", JSON.stringify(Productos));
+        ActualizarTabla();
+    }
 
     document.getElementById("NombreProducto").value = "";
     document.getElementById("Descripcion").value = "";
-    document.getElementById("Codigo").value = "1234";
     document.getElementById("url").value = "";
-    alert('Se guardaron los datos correctamente');
+    document.getElementById("Categoria").value = "";
+    document.getElementById("Precio").value = "";
+    document.getElementById("CodigoInput").value = "";
+    document.getElementById("Codigo").style.display = "none";
+
 });
