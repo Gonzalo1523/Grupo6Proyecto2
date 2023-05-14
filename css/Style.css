@@ -6,10 +6,14 @@ body{
 	background-image: url();
 }
 footer{
-		position: absolute;
 		width: 100%;
 		bottom: 1rem;
 }
+<<<<<<< HEAD:css/Style.css
+#Codigo{
+	display: none;
+}
+=======
 .card {
 	margin-bottom: 10px;
 	margin: 0 5px;
@@ -21,3 +25,4 @@ footer{
 
 
 	
+>>>>>>> 6cb2ac8773b2416c7b803c92e16f20ecd113e52a:Style.css
