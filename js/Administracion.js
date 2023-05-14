@@ -26,6 +26,7 @@ const ActualizarTabla = () => {
                     let td = document.createElement("td")
                     switch(key){
                         case "precio":
+                            td.style.maxWidth = "200px"
                             td.textContent = `$${Producto[key]}`
                             break;
                         case "url":
@@ -37,6 +38,8 @@ const ActualizarTabla = () => {
                             //td.appendChild(img)
                             break;
                         default:
+                            td.style.maxWidth = "150px"
+                            td.className += "text-wrap"
                             td.textContent = Producto[key]
                     }
                     tr.appendChild(td)
@@ -143,3 +146,15 @@ form.addEventListener("submit", (evento) => {
     document.getElementById('btnGuardar').textContent = "Guardar"
 
 });
+
+
+const limpiarDatos = () => {
+    document.getElementById("NombreProducto").value = "";
+    document.getElementById("Descripcion").value = "";
+    document.getElementById("url").value = "";
+    document.getElementById("Categoria").value = "";
+    document.getElementById("Precio").value = "";
+    document.getElementById("CodigoInput").value = "";
+    document.getElementById("Codigo").style.display = "none";
+    document.getElementById('btnGuardar').textContent = "Guardar"
+}

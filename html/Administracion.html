@@ -87,26 +87,26 @@
                 </div>
                 <div class="card-body">
                     <div class="row d-flex align-items-center">
-                        <div class="col-2 text-end">
+                        <div class="col-md-2 text-md-end text-center">
                             <label class="form-label col-auto" for="NombreProducto">Nombre del producto</label>
                         </div>
-                        <div class="col-10">
+                        <div class="col-md-10">
                             <input 
                                 class="form-control col-auto"   
                                 type="text" 
                                 id="NombreProducto"
-                                pattern="[A-Za-z0-9]{5,}"
+                                pattern="([A-Za-z0-9 ]){5,}"
                                 maxlength="50"
-                                title="Debe escribir solo con mayusculas"
+                                title="No puede con caracteres especiales tales como: % & $ = / @"
                                 required
                             >
                         </div>
                     </div>
                     <div class="row d-flex align-items-center">
-                        <div class="col-2 text-end">
+                        <div class="col-md-2 text-md-end text-center">
                             <label class="form-label col-auto" for="Descripcion">Descripcion</label>
                         </div>
-                        <div class="col-10">
+                        <div class="col-md-10">
                             <textarea 
                                 id="Descripcion" 
                                 class="form-control" 
@@ -116,10 +116,10 @@
                     </div>
 
                     <div class="row mt-2 d-flex align-items-center">
-                        <div class="col-2 text-end">
+                        <div class="col-md-2 text-md-end text-center">
                             <label class="form-label col-auto" for="url">Imagen</label>
                         </div>
-                        <div class="col-10">
+                        <div class="col-md-10">
                             <input 
                                 type="url" 
                                 class="form-control" 
@@ -130,25 +130,26 @@
                     </div>
 
                     <div class="row mt-2 d-flex align-items-center">
-                        <div class="col-2 text-end">
+                        <div class="col-md-2 text-md-end text-center">
                             <label class="form-label col-auto" for="Categoria">Categoria</label>
                         </div>
-                        <div class="col-10">
+                        <div class="col-md-10">
                             <input 
                                 type="text" 
                                 class="form-control" 
                                 id="Categoria"
-                                pattern="[A-Za-z0-9]{5,}"
+                                pattern="([A-Za-z0-9 ]){5,}"
+                                title="No puede con caracteres especiales tales como: % & $ = / @"
                                 maxlength="50"
                             >
                         </div>
                     </div>
 
                     <div class="row mt-2 d-flex align-items-center">
-                        <div class="col-2 text-end">
+                        <div class="col-md-2 text-md-end text-center">
                             <label class="form-label col-auto" for="Precio">Precio</label>
                         </div>
-                        <div class="col-10">
+                        <div class="col-md-10">
                             <div class="input-group">
                                 <span class="input-group-text">$</span>
                                 <input 
@@ -163,10 +164,10 @@
                     </div>
                     <div id="Codigo">
                         <div class="row mt-2 d-flex align-items-center">
-                            <div class="col-2 text-end">
+                            <div class="col-md-2 text-md-end text-center">
                                 <label class="form-label col-auto" for="CodigoInput">Codigo</label>
                             </div>
-                            <div class="col-10">
+                            <div class="col-md-10">
                                 <input type="text" class="form-control" id="CodigoInput" disabled>
                             </div>
                         </div>
@@ -175,14 +176,14 @@
                 </div>
                 <div class="card-footer">
                     <div class="d-flex justify-content-between">
-                        <button class="btn btn-secondary">cancelar</button>
+                        <button class="btn btn-secondary" onclick=limpiarDatos()>cancelar</button>
                         <button class="btn btn-success" type="submit" id="btnGuardar">Guardar</button>
                     </div>
                 </div>
             </form>
         </div>
 
-        <div class="row mt-2 overflow-scroll">
+        <div class="row mt-5 overflow-scroll">
             <table class="table table-striped text-center align-middle">
                 <thead id="tableHead">
                 </thead>
