@@ -1,5 +1,7 @@
 const form = document.getElementById("formProducto");
 const tableBody = document.getElementById("tableBody");
+const tableHead = document.getElementById("tableHead");
+let atributosVisibles = ["nombre", "codigo", "imagen", "categoria", "precio"]
 
 const AgregarProducto = (Producto) => {
     let Productos = JSON.parse(localStorage.getItem("Productos"));
@@ -14,75 +16,95 @@ const AgregarProducto = (Producto) => {
 };
 
 const ActualizarTabla = () => {
-    let Productos = JSON.parse(localStorage.getItem("Productos"));
+    let Productos = JSON.parse(localStorage.getItem("Productos"))
+    tableBody.innerHTML = "";
+    if (Productos != null && Productos.length != 0) {
+        Productos.forEach((Producto) => {
+            let tr = document.createElement("tr")
+            for (let key in Producto) {
+                if (atributosVisibles.find((atributo) => (atributo == key || key == 'url')) != undefined) {
+                    let td = document.createElement("td")
+                    switch(key){
+                        case "precio":
+                            td.style.maxWidth = "200px"
+                            td.textContent = `$${Producto[key]}`
+                            break;
+                        case "url":
+                            let img = document.createElement("img");
+                            img.src = Producto[key];
+                            img.style.width = '200px'
+                            img.style.height = '200px'
+                            td.appendChild(img)
+                            //td.appendChild(img)
+                            break;
+                        default:
+                            td.style.maxWidth = "150px"
+                            td.className += "text-wrap"
+                            td.textContent = Producto[key]
+                    }
+                    tr.appendChild(td)
+                }
+            }
 
-    if (Productos != null) {
-        tableBody.innerHTML = Productos.map((Producto, index) => {
-            let tr = `
-            <tr>
-                <td>${Producto.nombre}</td>
-                <td>${Producto.descripcion}</td>
-                <td>${Producto.codigo}</td>
-                <td class="text-break">${Producto.url}</td> 
-                <td>
-                    <div class="btn-group-vertical">
-                        <button type="button" class="btn btn-primary" onClick=EliminarProducto(${index})>Eliminar</button>
-                        <button type="button" class="btn btn-success" onclick=EditarProducto(${index})>Editar</button>
-                    </div>
-                </td>
-            </tr>`
-            return tr;
-        }).join("");
+            let buttonGroup = document.createElement("div")
+            buttonGroup.className = "btn-group-vertical"
+
+            let buttonEliminar = document.createElement("button")
+            buttonEliminar.textContent = "Eliminar"
+            buttonEliminar.className = "btn btn-danger"
+
+            buttonEliminar.onclick = () => {
+                let Productos = JSON.parse(localStorage.getItem("Productos"));
+                let index = Productos.findIndex((elemento)=> elemento.codigo == Producto.codigo)
+                Productos.splice(index, 1);
+                localStorage.setItem("Productos", JSON.stringify(Productos));
+                tableBody.removeChild(tr)
+            };;
+
+            let buttonEditar = document.createElement("button")
+            buttonEditar.textContent = "Editar"
+            buttonEditar.className = "btn btn-success"
+
+            buttonEditar.onclick = () => {
+                let Productos = JSON.parse(localStorage.getItem("Productos"));
+
+                let ProductoLS = Productos.find((ProductoLS)=>ProductoLS.codigo == Producto.codigo)
+
+                document.getElementById("NombreProducto").value = ProductoLS.nombre;
+                document.getElementById("Descripcion").value = ProductoLS.descripcion;
+                document.getElementById("url").value = ProductoLS.url;
+                document.getElementById("Categoria").value = ProductoLS.categoria;
+                document.getElementById("Precio").value = ProductoLS.precio;
+                document.getElementById("CodigoInput").value = ProductoLS.codigo;
+
+                document.getElementById('Codigo').style.display = "block";
+                document.getElementById('btnGuardar').textContent = "Editar"
+            };
+
+            buttonGroup.appendChild(buttonEliminar)
+            buttonGroup.appendChild(buttonEditar)
+
+            let td = document.createElement("td")
+            td.appendChild(buttonGroup);
+
+            tr.appendChild(td)
+
+            tableBody.appendChild(tr)
+        })
     }
 };
 ActualizarTabla();
 
-const EliminarProducto = (index) => {
-    let Productos = JSON.parse(localStorage.getItem("Productos"));
-    Productos.splice(index, 1);
-
-    localStorage.setItem("Productos", JSON.stringify(Productos));
-    ActualizarTabla();
-};
-
-const EditarProducto = (index) => {
-    console.log(index); 
-    let Productos = JSON.parse(localStorage.getItem("Productos"));
-    let Producto = Productos.at(index);
-
-    document.getElementById("NombreProducto").value = Producto.nombre;
-    document.getElementById("Descripcion").value = Producto.descripcion;
-    document.getElementById("url").value = Producto.url;
-    document.getElementById("Codigo").value = Producto.codigo;
-
-    document.getElementById("btnGuardar").style.display = 'none';
-    let editar = document.getElementsByClassName("Editar");
-
-    Array.from(editar).forEach((elemento) => {
-        elemento.style.display = 'block' 
+const generarHead = () => {
+    let tr = document.createElement("tr")
+    atributosVisibles.forEach((atributo) => {
+        let td = document.createElement("th")
+        td.textContent = atributo
+        tr.appendChild(td)
     })
-
-    editar[1].onclick = () => {
-        Producto.nombre = document.getElementById("NombreProducto").value;
-        Producto.descripcion = document.getElementById("Descripcion").value;
-        Producto.Codigo = Producto.codigo;
-        Producto.url = document.getElementById("url").value;
-
-        Productos[index] = Producto;
-        localStorage.setItem("Productos", JSON.stringify(Productos));
-        ActualizarTabla();
-
-        document.getElementById("NombreProducto").value = "";
-        document.getElementById("Descripcion").value = "";
-        document.getElementById("url").value = "";
-
-        Array.from(editar).forEach((elemento) => {
-            elemento.style.display = 'none' 
-        })
-
-        document.getElementById("btnGuardar").style.display = 'block';
-    };
-};
+    tableHead.appendChild(tr)
+}
+generarHead();
 
 const generarCodigo = () => {
     return crypto.randomUUID();
@@ -91,21 +113,48 @@ const generarCodigo = () => {
 form.addEventListener("submit", (evento) => {
     evento.preventDefault();
 
-    let codigo = generarCodigo();
-
     const Producto = {
         nombre: evento.target[0].value,
-        descripcion: evento.target[1].value,
+        codigo: evento.target[5].value,
         url: evento.target[2].value,
-        codigo: codigo,
+        categoria: evento.target[3].value,
+        descripcion: evento.target[1].value,
+        precio: evento.target[4].value,
     };
 
-    AgregarProducto(Producto);
-    ActualizarTabla();
+    if(Producto.codigo == ""){
+        let Productos = JSON.parse(localStorage.getItem("Productos"));
+        Producto.codigo = generarCodigo()
+        Productos.push(Producto)
+        localStorage.setItem("Productos", JSON.stringify(Productos));
+        ActualizarTabla();
+    }else{
+        let Productos = JSON.parse(localStorage.getItem("Productos"));
+        let index = Productos.findIndex((producto)=>producto.codigo==Producto.codigo)
+        Productos[index]=Producto;
+        localStorage.setItem("Productos", JSON.stringify(Productos));
+        ActualizarTabla();
+    }
 
     document.getElementById("NombreProducto").value = "";
     document.getElementById("Descripcion").value = "";
-    document.getElementById("Codigo").value = "1234";
     document.getElementById("url").value = "";
-    alert('Se guardaron los datos correctamente');
+    document.getElementById("Categoria").value = "";
+    document.getElementById("Precio").value = "";
+    document.getElementById("CodigoInput").value = "";
+    document.getElementById("Codigo").style.display = "none";
+    document.getElementById('btnGuardar').textContent = "Guardar"
+
 });
+
+
+const limpiarDatos = () => {
+    document.getElementById("NombreProducto").value = "";
+    document.getElementById("Descripcion").value = "";
+    document.getElementById("url").value = "";
+    document.getElementById("Categoria").value = "";
+    document.getElementById("Precio").value = "";
+    document.getElementById("CodigoInput").value = "";
+    document.getElementById("Codigo").style.display = "none";
+    document.getElementById('btnGuardar').textContent = "Guardar"
+}

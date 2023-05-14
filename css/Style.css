@@ -1,6 +1,13 @@
 body{
 	background-color: #BDBDBD;
 }
+.container{
+display: flex;
+justify-content: center;	
+}
+body{
+	background-image: url();
+}
 footer{
 	background-color: #6F6F6F;
 		/*position: absolute;*/
@@ -11,3 +18,17 @@ footer img{
 	width: 130px;
 	height: 130px;
 }
+
+#Codigo{
+	display: none;
+}
+
+.card {
+	margin-bottom: 10px;
+	margin: 0 5px;
+}
+
+.card img {
+	width: auto;
+}
+
