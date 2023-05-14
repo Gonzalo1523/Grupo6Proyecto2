@@ -95,7 +95,7 @@
                                 class="form-control col-auto"   
                                 type="text" 
                                 id="NombreProducto"
-                                pattern="([A-Za-z0-9].[^%&$/#=]){5,}"
+                                pattern="[A-Za-z0-9]{5,}"
                                 maxlength="50"
                                 title="Debe escribir solo con mayusculas"
                                 required
@@ -138,6 +138,8 @@
                                 type="text" 
                                 class="form-control" 
                                 id="Categoria"
+                                pattern="[A-Za-z0-9]{5,}"
+                                maxlength="50"
                             >
                         </div>
                     </div>
@@ -180,7 +182,6 @@
             </form>
         </div>
 
-
         <div class="row mt-2 overflow-scroll">
             <table class="table table-striped text-center align-middle">
                 <thead id="tableHead">
@@ -190,6 +191,9 @@
             </table>
         </div>
 
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" id="modalCarga">
+            <h1>Prueba de modal</h1>
+        </div>
     </main>
 
     <footer class="footer">

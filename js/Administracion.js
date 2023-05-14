@@ -1,7 +1,7 @@
 const form = document.getElementById("formProducto");
 const tableBody = document.getElementById("tableBody");
 const tableHead = document.getElementById("tableHead");
-let atributosVisibles = ["nombre", "codigo", "categoria", "descripcion", "precio"]
+let atributosVisibles = ["nombre", "codigo", "imagen", "categoria", "precio"]
 
 const AgregarProducto = (Producto) => {
     let Productos = JSON.parse(localStorage.getItem("Productos"));
@@ -22,12 +22,22 @@ const ActualizarTabla = () => {
         Productos.forEach((Producto) => {
             let tr = document.createElement("tr")
             for (let key in Producto) {
-                if (atributosVisibles.find((atributo) => atributo == key) != undefined) {
+                if (atributosVisibles.find((atributo) => (atributo == key || key == 'url')) != undefined) {
                     let td = document.createElement("td")
-                    if(key == "precio"){
-                        td.textContent = `$${Producto[key]}`
-                    }else{
-                        td.textContent = Producto[key]
+                    switch(key){
+                        case "precio":
+                            td.textContent = `$${Producto[key]}`
+                            break;
+                        case "url":
+                            let img = document.createElement("img");
+                            img.src = Producto[key];
+                            img.style.width = '200px'
+                            img.style.height = '200px'
+                            td.appendChild(img)
+                            //td.appendChild(img)
+                            break;
+                        default:
+                            td.textContent = Producto[key]
                     }
                     tr.appendChild(td)
                 }
@@ -65,6 +75,7 @@ const ActualizarTabla = () => {
                 document.getElementById("CodigoInput").value = ProductoLS.codigo;
 
                 document.getElementById('Codigo').style.display = "block";
+                document.getElementById('btnGuardar').textContent = "Editar"
             };
 
             buttonGroup.appendChild(buttonEliminar)
@@ -88,7 +99,6 @@ const generarHead = () => {
         td.textContent = atributo
         tr.appendChild(td)
     })
-
     tableHead.appendChild(tr)
 }
 generarHead();
@@ -130,5 +140,6 @@ form.addEventListener("submit", (evento) => {
     document.getElementById("Precio").value = "";
     document.getElementById("CodigoInput").value = "";
     document.getElementById("Codigo").style.display = "none";
+    document.getElementById('btnGuardar').textContent = "Guardar"
 
 });
