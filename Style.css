@@ -2,9 +2,7 @@
 display: flex;
 justify-content: center;	
 }
-body{
-	background-image: url();
-}
+
 footer{
 		position: absolute;
 		width: 100%;
@@ -15,8 +13,8 @@ footer{
 	margin: 0 5px;
   }
   .card img {
-	width: auto;
-
+	border-bottom-width: 20px;
+	
   }
 
 
