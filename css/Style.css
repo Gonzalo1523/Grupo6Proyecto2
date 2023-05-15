@@ -2,8 +2,8 @@ body{
 	background-color: #BDBDBD;
 }
 .container{
-display: flex;
-justify-content: center;	
+	display: flex;
+	justify-content: center;	
 }
 body{
 	background-image: url();
@@ -17,10 +17,6 @@ footer{
 footer img{
 	width: 130px;
 	height: 130px;
-}
-
-#Codigo{
-	display: none;
 }
 
 .card {

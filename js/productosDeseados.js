@@ -1,10 +1,9 @@
-// ...
+let contenedorCards =  document.getElementById('contenedorCards');
 let contadorId = 0;
 const ActualizarLista = () => {
 	let Productos = JSON.parse(localStorage.getItem("Productos"));
 	let ProductosFavoritos = Productos.filter((Producto) => (Producto.favorito != undefined && Producto.favorito))
 
-	console.log(ProductosFavoritos);
 	let productoVista = ProductosFavoritos.map((producto) => {
 		contadorId++;
 		let productoVIsta = `
@@ -27,6 +26,7 @@ const ActualizarLista = () => {
 
 		return productoVIsta;
 	}).join("");
+
 	contenedorCards.innerHTML = productoVista;
 };
 ActualizarLista();
