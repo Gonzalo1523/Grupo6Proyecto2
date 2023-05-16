@@ -6,7 +6,10 @@ const seleccionarProducto = (codigo) => {
     text: '',
     footer: '<a href="">Quiere registrarse?</a>'
   })
+  producto.favorito = true;
+  localStorage.setItem("Productos",JSON.stringify(productos))//actualizar el local storage
 };
+
 const produc = document.getElementById("catalogo");
 let productos = JSON.parse(localStorage.getItem("Productos"));
 function mostrarCard() {
