@@ -10,7 +10,7 @@ loginForm.addEventListener(`submit`, (e)=>{
         return alert(`Usuario y/o contrase incorrectos`)
     }
     alert(`Bienvenido ${validUsers.name}`)
-    window.location.href=`home.html`
+    window.location.href=`index.html`
 
 
 })
