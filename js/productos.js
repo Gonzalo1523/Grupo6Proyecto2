@@ -4,7 +4,7 @@ const seleccionarProducto = (codigo) => {
     icon: 'error',
     title: 'Oops... se debe registrar para agregar el producto a Favoritos',
     text: '',
-    footer: '<a href="">Quiere registrarse?</a>'
+    footer: '<a href="./html/registro.html">Quiere registrarse?</a>'
   })
   producto.favorito = true;
   localStorage.setItem("Productos",JSON.stringify(productos))//actualizar el local storage
@@ -22,7 +22,7 @@ function mostrarCard() {
         <p class="card-text">${Producto.descripcion}</p>
         <button class="btn btn-primary" onClick=mostrarMensaje()>Agregar al Carrito</button>
         <button class="btn btn-warning" onClick=seleccionarProducto(${Producto.codigo})>Favoritos</button>
-              <button class="btn btn-success">Comprar</button>
+        <a href="./html/error404-2.html"><button class="btn btn-success">Comprar</button></a>
       </div>
     </div>`;
     return card;
@@ -36,7 +36,7 @@ function mostrarMensaje(mensaje) {
     icon: 'error',
     title: 'Oops... se debe registrar para agregar el producto al Carrito',
     text: '',
-    footer: '<a href="">Quiere registrarse?</a>'
+    footer: '<a href="./html/registro.html">Quiere registrarse?</a>'
   })
 } 
 

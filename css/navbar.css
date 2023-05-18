@@ -4,7 +4,6 @@ a.nav-link{
 
 ul{
 	font-family: "Chivo Mono", monospace;
-	/*display: flex;*/
 	gap: 10px;
 	color:rgb(14, 13, 13);
 }
@@ -12,11 +11,9 @@ ul li{
 	list-style: none;
 }
 ul li a{
-	/*font-size: 16px;
-	font-weight: 700;*/
 	text-decoration: none;
 	text-transform: uppercase;
-	color: rgb(12, 12, 12);
+	color: white;
 	padding: 5px;
 	transition: 0.5s ease;
 }
@@ -27,4 +24,9 @@ ul:hover li a:not(:hover){
     color: rgb(8, 8, 8);
 	opacity: 0.3;
 	filter: blur(1px);
+}
+
+#carrito{
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
