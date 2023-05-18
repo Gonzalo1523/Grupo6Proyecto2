@@ -1,0 +1,23 @@
+#Codigo{
+	display: none;
+}
+body{
+	background-color: #BDBDBD;
+}
+#tableHead{
+	background: #6f6f6f;
+	color: white;
+}
+.card-header{
+	background-color: #6f6f6f;
+	color: white;
+}
+.card-body{
+	background-color: #BDBDBD;
+}
+.card-footer{
+	background-color: #7a7a7a;
+}
+.btn-danger{
+	background-color: rgb(141, 86, 86);
+}
