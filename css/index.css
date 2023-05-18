@@ -6,11 +6,6 @@ h3{
 	text-align: center;
 }
 
-h5 .card-title{
-	margin-top: 15px;
-	margin-bottom: 15px;
-}
-
 .card-img-top{
 	align-items: center;
 	width: 200px;
@@ -33,7 +28,9 @@ h5 .card-title{
 	margin-bottom: 20px;
 }
 
-button.btn.btn-success{
-	margin-top: 5px;
-	margin-bottom: 5px;
-}
+/*div.card-footer{
+	width: 15rem;
+	height: 10rem;
+}*/
+
+

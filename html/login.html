@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/login.css" />
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/navbar.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+   
     <title>Login - Nombre Empresa</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg colornav" style="background-color:#6f6f6f;">
         <div class="container-fluid">
@@ -46,19 +49,19 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" href="./error404-2.html">Herramientas Electricas</a>
+                                <a class="dropdown-item" href="#">Herramientas Electricas</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="./error404-2.html">Herramientas Neumáticas</a>
+                                <a class="dropdown-item" href="#">Herramientas Neumáticas</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="./error404-2.html">Electricidad del Hogar</a>
+                                <a class="dropdown-item" href="#">Electricidad del Hogar</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="./error404-2.html">Jardineria</a>
+                                <a class="dropdown-item" href="#">Jardineria</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="../index.html">Ofertas</a>
+                                <a class="dropdown-item" href="#">Ofertas</a>
                             </li>
                         </ul>
                     </li>
@@ -68,31 +71,15 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="./Administracion.html" id="AdministracionProductos">Administracion</a>
+                        <a class="nav-link" href="../html/Administracion.html" id="AdministracionProductos">Administracion</a>
                     </li>
 
                 </ul>
 
-                <nav class="d-flex form-Login">
-                    <form class="input-group justify-content-end" role="search">
-                        <a class="btn btn-outline-dark" href="#" id="Login">Login</a>
-                        <a class="btn btn-outline-dark" href="#" id="Logout">Logout</a>
-                        <a class="btn btn-outline-dark" href="./registro.html">Registrarse</a>
-                    </form>
-                </nav>
-                <div>
-                    <a href="./error404-2.html"><svg id="carrito" xmlns="http://www.w3.org/2000/svg" width="50"
-                            height="40" fill="currentColor" class="btn btn-outline-light me-2" viewBox="0 0 16 16">
-                            <path
-                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
-                        </svg>
-                    </a>
-                </div>
-
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Ingrese su busqueda"
-                        aria-label="Search">
-                    <button id="botonBuscar" class="btn btn-outline-light" type="submit">Buscar</button>
+                <form class="input-group justify-content-end" role="search">
+                    <a class="btn btn-outline-dark" href="#" id="Login">Login</a>
+                    <a class="btn btn-outline-dark" href="#" id="Logout">Logout</a> 
+                    <a class="btn btn-outline-dark" href="./registro.html">Registrarse</a>
                 </form>
             </div>
         </div>
@@ -101,73 +88,70 @@
 
     <!-- CONTENEDOR DEL LOGIN -->
     <div class="container">
-
-        <div class="text-end">
-            <img src="Imagen costado Login" width="80px" alt="" />
-        </div>
-        <div>
-            <h2 class="fw-bold text-center py-3 container rounded rounded-pill" style="background-color: #BDBDBD">
-                Bienvenido</h2>
-        </div>
-        <!-- Login -->
-        <main class="container rounded-5" style="background-color: #BDBDBD">
-            <section>
-
-                <div>
-                    <form id="loginForm" class="form-label">
-                        <label>Email</label>
-                        <input class="container w-100 my-5 rounded-3 border-muted" type="email" id="email"
-                            placeholder="..." autofocus required="">
-                </div>
-                <div>
-                    <label>Contraseña</label>
-                    <input class="container w-100 my-5 rounded-3 border-muted " type="password" id="password"
-                        placeholder="..." required>
-                </div>
-                <div>
-                    <input type="submit" value="Ingresar!">
-                </div>
-                </form>
-                <br>
-                <p>No tienes una cuenta??? <a href="../html/registro.html">Registrate aca!</a></p>
-
-
-
-            </section>
-
-            <!-- Login con redes sociales -->
-            <div class=>
-                <div class="row text-center mb-2">
-                    <div class="col-12">Iniciar Sesión</div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <a href="https://www.facebook.com/" target="_blank" class="btn btn-outline-primary w-100 my-1"
-                            role="button">
-                            <div class="row align-items-center">
-                                <div class="col-2 d-none d-md-block">
-                                    <img src="../scr/facebook.png" width="35px" alt="" />
-                                </div>
-                                <div class="col-8">Facebook</div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col">
-                        <a href="https://www.gmail.com/mail" target="_blank" class="btn btn-outline-danger w-100 my-1"
-                            role="button">
-                            <div class="row align-items-center">
-                                <div class="col-2 d-none d-md-block">
-                                    <img src="../scr/google.png" width="35px" alt="" />
-                                </div>
-                                <div class="col-8">Google</div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+        
+            <div class="text-end">
+                <img src="Imagen costado Login" width="80px" alt="" />
             </div>
-        </main>
-    </div>
-    </div>
+            <div>
+            <h2 class="fw-bold text-center py-3 container rounded rounded-pill"style="background-color: #BDBDBD">Bienvenido</h2>
+           </div>
+            <!-- Login -->
+            <main class="container rounded-5" style="background-color: #BDBDBD">
+                <section>
+
+                    <div >
+                        <form id="loginForm" class="form-label">
+                            <label>Email</label>
+                            <input class="container w-100 my-5 rounded-3 border-muted" type="email" id="email"
+                                placeholder="..." autofocus required="">
+                    </div>
+                    <div>
+                        <label>Contraseña</label>
+                        <input class="container w-100 my-5 rounded-3 border-muted " type="password" id="password"
+                            placeholder="..." required>
+                    </div>
+                    <div>
+                        <input type="submit" value="Ingresar!">
+                    </div>
+                    </form>
+                    <br>
+                    <p>No tienes una cuenta??? <a href="../html/registro.html">Registrate aca!</a></p>
+
+
+
+                </section>
+                
+                <!-- Login con redes sociales -->
+                <div class=>
+                    <div class="row text-center mb-2">
+                        <div class="col-12">Iniciar Sesión</div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="https://www.facebook.com/"target="_blank" class="btn btn-outline-primary w-100 my-1" role="button">
+                                <div class="row align-items-center">
+                                    <div class="col-2 d-none d-md-block">
+                                        <img src="../scr/facebook.png" width="35px" alt="" />
+                                    </div>
+                                    <div class="col-8">Facebook</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="https://www.gmail.com/mail"target="_blank" class="btn btn-outline-danger w-100 my-1" role="button">
+                                <div class="row align-items-center">
+                                    <div class="col-2 d-none d-md-block">
+                                        <img src="../scr/google.png" width="35px" alt="" />
+                                    </div>
+                                    <div class="col-8">Google</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+      </div>
     </div>
     <!--FIN CONTENEDOR DEL LOGIN -->
     <br>
@@ -215,7 +199,7 @@
                     <h5 class="text-uppercase mb-0">Contáctanos en nuestras redes sociales:</h5>
                     <!-- Inicio Redes Sociales -->
                     <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-                        style="background-color:#6f6f6f; color: black;">
+                    style="background-color:#6f6f6f; color: black;">
                         <!-- Izquierda -->
                         <div class="me-5 d-none d-lg-block">
                         </div>
