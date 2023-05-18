@@ -27,7 +27,7 @@ const ActualizarTabla = () => {
                     switch(key){
                         case "precio":
                             td.style.maxWidth = "200px"
-                            td.textContent = `$${Producto[key]}`
+                            td.textContent = `${Producto[key]}`
                             break;
                         case "url":
                             let img = document.createElement("img");
@@ -54,11 +54,25 @@ const ActualizarTabla = () => {
             buttonEliminar.className = "btn btn-danger"
 
             buttonEliminar.onclick = () => {
-                let Productos = JSON.parse(localStorage.getItem("Productos"));
-                let index = Productos.findIndex((elemento)=> elemento.codigo == Producto.codigo)
-                Productos.splice(index, 1);
-                localStorage.setItem("Productos", JSON.stringify(Productos));
-                tableBody.removeChild(tr)
+                Swal.fire({
+                    title: `Eliminar`,
+                    text: `¿Seguro desea eliminar ${Producto.nombre}?`,
+                    icon: 'error',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Elimnar',
+                    cancelButtonText: 'Cancelar'
+                  }).then((result) => {
+                    if(result.isConfirmed){
+                        let Productos = JSON.parse(localStorage.getItem("Productos"));
+                        let index = Productos.findIndex((elemento)=> elemento.codigo == Producto.codigo)
+                        Productos.splice(index, 1);
+                        localStorage.setItem("Productos", JSON.stringify(Productos));
+                        tableBody.removeChild(tr)
+                    }
+                  })
+                  
             };;
 
             let buttonEditar = document.createElement("button")
@@ -102,6 +116,8 @@ const generarHead = () => {
         td.textContent = atributo
         tr.appendChild(td)
     })
+    let td = document.createElement("td");
+    tr.appendChild(td)
     tableHead.appendChild(tr)
 }
 generarHead();
