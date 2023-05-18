@@ -28,3 +28,11 @@ ul:hover li a:not(:hover){
 	opacity: 0.3;
 	filter: blur(1px);
 }
+
+#AdministracionProductos{
+	display: none;
+}
+
+#Logout{
+	display: none;
+}

@@ -21,7 +21,7 @@
         Una vez cargado un producto debe aparecer en la tabla previamente mencionada, desde donde debemos poder editar y modificar el mismo. Cada producto que ingresemos se debe reflejar en la página principal.
         Atributos: Nombre de producto, Codigo único, Descripcion breve, URL de imagen
      -->
-    <nav class="navbar navbar-expand-lg colornav" style="background-color:#6f6f6f;">
+     <nav class="navbar navbar-expand-lg colornav" style="background-color:#6f6f6f;">
         <div class="container-fluid">
             <a class="navbar-brand" href="../index.html">
                 <img src="../img/logo 2 (1).jpeg" alt="logo2" width="75px" height="75px">
@@ -37,7 +37,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Nosotros</a>
+                        <a class="nav-link" href="./about.html">Nosotros</a>
                     </li>
 
                     <li class="nav-item">
@@ -73,14 +73,15 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Administracion</a>
+                        <a class="nav-link" href="../html/Administracion.html" id="AdministracionProductos">Administracion</a>
                     </li>
 
                 </ul>
 
                 <form class="input-group justify-content-end" role="search">
-                    <a class="btn btn-outline-dark" href="../html/login.html">Login</a>
-                    <a class="btn btn-outline-dark" href="../html/registro.html">Registrarse</a>
+                    <a class="btn btn-outline-dark" href="../html/login.html" id="Login">Login</a>
+                    <a class="btn btn-outline-dark" href="#" id="Logout">Logout</a> 
+                    <a class="btn btn-outline-dark" href="./registro.html">Registrarse</a>
                 </form>
             </div>
         </div>
@@ -275,6 +276,7 @@
         crossorigin="anonymous"></script>
 
     <script type="module" src="../Repositorio.js"></script>
+    <script src="../js/navBar.js"></script>
     <script src="../js/Administracion.js"></script>
 </body>
 
