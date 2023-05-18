@@ -1,0 +1,39 @@
+body{
+	background-color: #BDBDBD;
+}
+
+h3{
+	text-align: center;
+}
+
+h5 .card-title{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.card-img-top{
+	align-items: center;
+	width: 200px;
+	height: 250px;
+}
+
+
+.card-body{
+	width: 50%;
+	height: 40%;
+	text-align: center; 
+	margin: 15px 15px;
+	display: inline-block;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.card-body2{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+button.btn.btn-success{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}

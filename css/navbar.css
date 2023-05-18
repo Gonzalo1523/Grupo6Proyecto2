@@ -1,0 +1,41 @@
+a.nav-link{
+	color: white;
+}
+
+ul{
+	font-family: "Chivo Mono", monospace;
+	gap: 10px;
+	color:rgb(14, 13, 13);
+}
+ul li{
+	list-style: none;
+}
+ul li a{
+	text-decoration: none;
+	text-transform: uppercase;
+	color: white;
+	padding: 5px;
+	transition: 0.5s ease;
+}
+ul:hover li a{
+	color: white ;
+}
+ul:hover li a:not(:hover){
+    color: rgb(8, 8, 8);
+	opacity: 0.3;
+	filter: blur(1px);
+}
+
+#carrito{
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+#AdministracionProductos{
+	display: none;
+}
+#Logout{
+	display: none;
+}
+.form-Login{
+	margin-right: 15px;
+}
