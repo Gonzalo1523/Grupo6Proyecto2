@@ -2,19 +2,25 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/login.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administración</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/DetalleProducto.css">
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="../css/footer.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
-    <title>registro - Nombre Empresa</title>
+
 </head>
 
 <body>
-    <!-- Navbar -->
+    <!-- 
+        En la página de administración se debe mostrar una tabla donde aparecerán los productos que el administrador vaya creando, además mostrar las opciones para agregar, borrar y editar estos productos.
+        Para realizar el proceso de agregar, editar y borrar se necesita un formulario el cual puede estar maquetado en la misma página, puede ser llamado en una ventana modal o estar en otra página. Este formulario debe estar completamente validado tanto con HTML como con JavaScript.
+        Una vez cargado un producto debe aparecer en la tabla previamente mencionada, desde donde debemos poder editar y modificar el mismo. Cada producto que ingresemos se debe reflejar en la página principal.
+        Atributos: Nombre de producto, Codigo único, Descripcion breve, URL de imagen
+     -->
     <nav class="navbar navbar-expand-lg colornav" style="background-color:#6f6f6f;">
         <div class="container-fluid">
             <a class="navbar-brand" href="../index.html">
@@ -31,7 +37,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="./about.html">Nosotros</a>
+                        <a class="nav-link" href="#">Nosotros</a>
                     </li>
 
                     <li class="nav-item">
@@ -45,19 +51,19 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" href="./error404-2.html">Herramientas Electricas</a>
+                                <a class="dropdown-item" href="#">Herramientas Electricas</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="./error404-2.html">Herramientas Neumáticas</a>
+                                <a class="dropdown-item" href="#">Herramientas Neumáticas</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="./error404-2.html">Electricidad del Hogar</a>
+                                <a class="dropdown-item" href="#">Electricidad del Hogar</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="./error404-2.html">Jardineria</a>
+                                <a class="dropdown-item" href="#">Jardineria</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="../index.html">Ofertas</a>
+                                <a class="dropdown-item" href="#">Ofertas</a>
                             </li>
                         </ul>
                     </li>
@@ -67,76 +73,35 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="./Administracion.html" id="AdministracionProductos">Administracion</a>
+                        <a class="nav-link" href="#">Administracion</a>
                     </li>
 
                 </ul>
 
-                <nav class="d-flex form-Login">
-                    <form class="input-group justify-content-end" role="search">
-                        <a class="btn btn-outline-dark" href="./login.html" id="Login">Login</a>
-                        <a class="btn btn-outline-dark" href="#" id="Logout">Logout</a>
-                        <a class="btn btn-outline-dark" href="#">Registrarse</a>
-                    </form>
-                </nav>
-                <div>
-                    <a href="./error404-2.html"><svg id="carrito" xmlns="http://www.w3.org/2000/svg" width="50"
-                            height="40" fill="currentColor" class="btn btn-outline-light me-2" viewBox="0 0 16 16">
-                            <path
-                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
-                        </svg>
-                    </a>
-                </div>
-
                 <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Ingrese su busqueda"
-                        aria-label="Search">
-                    <button id="botonBuscar" class="btn btn-outline-light" type="submit">Buscar</button>
+                    <button class="btn btn-outline-dark" type="submit">Iniciar Sesión</button>
+                    <button class="btn btn-outline-dark" type="submit">Registrase</button>
                 </form>
             </div>
         </div>
     </nav>
-    <!-- fin navbar -->
-    <br>
-    <!-- CONTENEDOR DEL LOGIN -->
-    <h2 class=" container rounded-pill fw-bold text-center py-3 b " style="background-color: #BDBDBD">Completa estos
-        campos para registrarte</h2>
 
-    <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded"></div>
-    <div class="col  p-5 rounded-5 container" style="background-color: #BDBDBD">
-        <!-- <div class="text-end">
-            <img src="Imagen costado Login" width="80px" alt="" />
-        </div> -->
 
-        <!-- Login -->
-        <main>
-            <section>
-                <form id="signupForm">
+    <main class="container my-3">
 
-                    <label class="form-label" for="Nombre">Nombre</label>
-                    <input class="form-control" type="text" id="Nombre" placeholder="..." autofocus required>
+        <div class="card border-secondary">
+            <div class="row">
+                <div class="col-6 p-3" id="imagenProducto"></div>
+                <div class="col-6 d-flex flex-column justify-content-center descripcionContainer">
+                    <div id="nombre"></div>
+                    <div id="categoria"></div>
+                    <div id="descripcion"></div>
+                    <div id="precio"></div>
+                </div>
+            </div>
+        </div>
 
-                    <label class="form-label mt-2" for="Email">Nombre de usuario</label>
-                    <input class="form-control" type="text" id="NombreUsuario" placeholder="..." required>
-
-                    <label class="form-label mt-2" for="Email">Email</label>
-                    <input class="form-control" type="email" id="email" placeholder="..." required>
-
-                    <label class="form-label mt-2" for="contraseña">Contraseña</label>
-                    <input class="form-control" type="password" id="Contraseña" placeholder="..." required>
-
-                    <input class="form-control mt-2 btn btn-secondary" type="submit" value="Registrarse">
-
-                </form>
-                <br>
-                <p>Ya tienes una cuenta? <a href="../html/login.html">Ingresa</a></p>
-
-            </section>
-        </main>
-    </div>
-    </div>
-    <br>
-
+    </main>
 
     <footer class="text-white text-center text-md-start">
         <!-- Grid container -->
@@ -180,7 +145,7 @@
                     <h5 class="text-uppercase mb-0">Contáctanos en nuestras redes sociales:</h5>
                     <!-- Inicio Redes Sociales -->
                     <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-                        style="background-color: #BDBDBD; color: black;">
+                        style="background-color: #6F6F6F; color: black;">
                         <!-- Izquierda -->
                         <div class="me-5 d-none d-lg-block">
                         </div>
@@ -226,19 +191,19 @@
         <!-- Fin Grid container -->
 
         <!-- Inicio Copyright -->
-        <div class="text-center p-3" style="background-color: #BDBDBD">
+        <div class="text-center p-3" style="background-color: grey">
             © 2023 Copyright:
             <a class="text-white" href="https://rollingcodeschool.com/">Desarrollado para Rolling</a>
         </div>
         <!-- Fin Copyright -->
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../js/navBar.js"></script>
-    <script src="../js/regristro.js"></script>
-    <script src="../Repositorio.js"></script>
+
+    <script type="module" src="../Repositorio.js"></script>
+    <script src="../js/DetalleProducto.js"></script>
 </body>
 
 </html>
