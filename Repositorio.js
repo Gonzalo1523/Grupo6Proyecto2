@@ -61,24 +61,28 @@ const Producto = {
         {
             "Nombre": "David Antonio Moreno",
             "NombreUsuario": "DavidMoreno",
+            "email": "admin@gmail.com",
             "Contraseña": "1234",
             "rol": "Administrador"
         },
         {
             "Nombre": "Gonzalo Sebastian Trejo",
             "NombreUsuario": "GonzaloTrejo",
+            "email": "admin2@gmail.com",
             "Contraseña": "1234",
             "rol": "Usuario"
         },
         {
             "Nombre": "Nestor Nicolas Veliz",
             "NombreUsuario": "NicolasVeliz",
+            "email": "admin3@gmail.com",
             "Contraseña": "1234",
             "rol": "Usuario"
         },
         {
             "Nombre": "Juan Agustin Sanchez",
             "NombreUsuario": "AgustinSanchez",
+            "email": "admin4@gmail.com",
             "Contraseña": "1234",
             "rol": "Usuario"
         }

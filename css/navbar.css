@@ -30,3 +30,12 @@ ul:hover li a:not(:hover){
 	margin-top: 15px;
 	margin-bottom: 15px;
 }
+#AdministracionProductos{
+	display: none;
+}
+#Logout{
+	display: none;
+}
+.form-Login{
+	margin-right: 15px;
+}

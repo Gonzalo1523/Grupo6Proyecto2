@@ -1,19 +1,55 @@
-const signupForm = document.querySelector(`#signupForm`)
-signupForm.addEventListener(`submit`, (e)=>{
-    e.preventDefault()
-    const name=document.querySelector(`#name`) .value
-    const email=document.querySelector(`#email`).value
-    const password=document.querySelector(`#password`).value
+const signupForm = document.querySelector(`#signupForm`);
+signupForm.addEventListener(`submit`, (e) => {
+  e.preventDefault();
+  const Nombre = document.querySelector(`#Nombre`).value;
+  const NombreUsuario = document.querySelector(`#NombreUsuario`).value;
+  const email = document.querySelector(`#email`).value;
+  const Contraseña = document.querySelector(`#Contraseña`).value;
 
-    const Users=JSON.parse(localStorage.getItem(`users`)) || []
-    const userRegistered = Users.find(user => user.email===email)
-    if(userRegistered){
-        return alert(`el usuario ya esta registrado!!`)
+  const usuario = {
+    Contraseña: Contraseña,
+    Nombre: Nombre,
+    NombreUsuario: NombreUsuario,
+    email: email,
+    rol: "Usuario",
+  };
+
+  const Usuarios = JSON.parse(localStorage.getItem(`Usuarios`));
+
+  if (Usuarios != undefined && Usuarios.length > 0) {
+    const UsuarioRegistrado = Usuarios.find(
+      (usuario) => usuario.email === email
+    );
+
+    if (UsuarioRegistrado) {
+        signupForm.reset();
+        return Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "Usuario ya registrasdo",
+        });
     }
-    Users.push({name:name , email:email , password:password})
-    localStorage.setItem(`users`,JSON.stringify(Users))
-    alert(`Registro Exitoso!`)
-    window.location.href=`login2.html`
 
-})
-
+    Usuarios.push(usuario);
+    localStorage.setItem(`Usuarios`, JSON.stringify(Usuarios));
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: `Usuario Registrado`,
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    signupForm.reset();
+  } else {
+    let Usuarios = [usuario];
+    localStorage.setItem("Usuarios", JSON.stringify(Usuarios));
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: `Usuario Registrado`,
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    signupForm.reset();
+  }
+});

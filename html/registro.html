@@ -31,7 +31,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Nosotros</a>
+                        <a class="nav-link" href="./about.html">Nosotros</a>
                     </li>
 
                     <li class="nav-item">
@@ -45,19 +45,19 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" href="#">Herramientas Electricas</a>
+                                <a class="dropdown-item" href="./error404-2.html">Herramientas Electricas</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Herramientas Neumáticas</a>
+                                <a class="dropdown-item" href="./error404-2.html">Herramientas Neumáticas</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Electricidad del Hogar</a>
+                                <a class="dropdown-item" href="./error404-2.html">Electricidad del Hogar</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Jardineria</a>
+                                <a class="dropdown-item" href="./error404-2.html">Jardineria</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Ofertas</a>
+                                <a class="dropdown-item" href="../index.html">Ofertas</a>
                             </li>
                         </ul>
                     </li>
@@ -67,69 +67,76 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="../html/Administracion.html">Administracion</a>
+                        <a class="nav-link" href="./Administracion.html" id="AdministracionProductos">Administracion</a>
                     </li>
 
                 </ul>
 
-                <form class="input-group justify-content-end" role="search">
-                    <a class="btn btn-outline-dark" href="../html/login.html">Login</a>
-                    <a class="btn btn-outline-dark" href="#">Registrarse</a>
+                <nav class="d-flex form-Login">
+                    <form class="input-group justify-content-end" role="search">
+                        <a class="btn btn-outline-dark" href="./login.html" id="Login">Login</a>
+                        <a class="btn btn-outline-dark" href="#" id="Logout">Logout</a>
+                        <a class="btn btn-outline-dark" href="#">Registrarse</a>
+                    </form>
+                </nav>
+                <div>
+                    <a href="./error404-2.html"><svg id="carrito" xmlns="http://www.w3.org/2000/svg" width="50"
+                            height="40" fill="currentColor" class="btn btn-outline-light me-2" viewBox="0 0 16 16">
+                            <path
+                                d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+                        </svg>
+                    </a>
+                </div>
+
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Ingrese su busqueda"
+                        aria-label="Search">
+                    <button id="botonBuscar" class="btn btn-outline-light" type="submit">Buscar</button>
                 </form>
             </div>
         </div>
     </nav>
     <!-- fin navbar -->
-
+    <br>
     <!-- CONTENEDOR DEL LOGIN -->
-    <div class="container">
-        <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded"></div>
-        <div class="col bg-white p-5 rounded-end">
-            <div class="text-end">
-                <img src="Imagen costado Login" width="80px" alt="" />
-            </div>
-            <h2 class="fw-bold text-center py-3">Completa estos campos para registrarte</h2>
+    <h2 class=" container rounded-pill fw-bold text-center py-3 b " style="background-color: #BDBDBD">Completa estos
+        campos para registrarte</h2>
 
-            <!-- Login -->
-            <main>
+    <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded"></div>
+    <div class="col  p-5 rounded-5 container" style="background-color: #BDBDBD">
+        <!-- <div class="text-end">
+            <img src="Imagen costado Login" width="80px" alt="" />
+        </div> -->
+
+        <!-- Login -->
+        <main>
+            <section>
+                <form id="signupForm">
+
+                    <label class="form-label" for="Nombre">Nombre</label>
+                    <input class="form-control" type="text" id="Nombre" placeholder="..." autofocus required>
+
+                    <label class="form-label mt-2" for="Email">Nombre de usuario</label>
+                    <input class="form-control" type="text" id="NombreUsuario" placeholder="..." required>
+
+                    <label class="form-label mt-2" for="Email">Email</label>
+                    <input class="form-control" type="email" id="email" placeholder="..." required>
+
+                    <label class="form-label mt-2" for="contraseña">Contraseña</label>
+                    <input class="form-control" type="password" id="Contraseña" placeholder="..." required>
+
+                    <input class="form-control mt-2 btn btn-secondary" type="submit" value="Registrarse">
+
+                </form>
                 <br>
-                <section>
-                    <form id="signupForm" class="form-label">
-                        <div>
-                            <label>Nombre Completo</label>
-                            <input class="container w-100 my-5 rounded-3 border-muted " type="text" id="name"
-                                placeholder="Diego de la vega" required>
-                        </div>
-                        <div>
-                            <label>Numero de Telefono</label>
-                            <input class="container w-100 my-5 rounded-3 border-muted " type="text" id="cel"
-                                placeholder="0303456" required>
-                        </div>
+                <p>Ya tienes una cuenta? <a href="../html/login.html">Ingresa</a></p>
 
-
-                        <div>
-                            <label>Email</label>
-                            <input class="container w-100 my-5 rounded-3 border-muted" type="email" id="email"
-                                placeholder="elzorro@...com" autofocus required>
-                        </div>
-                        <div>
-                            <label>Contraseña</label>
-                            <input class="container w-100 my-5 rounded-3 border-muted " type="password" id="password"
-                                placeholder="****" required="">
-                        </div>
-                        <div>
-                            <input type="submit" value="Registrarse">
-                        </div>
-                    </form>
-                    <br>
-                    <p>Ya tienes una cuenta? <a href="../html/login.html">Ingresa</a></p>
-
-
-
-                </section>
-            </main>
-        </div>
+            </section>
+        </main>
     </div>
+    </div>
+    <br>
+
 
     <footer class="text-white text-center text-md-start">
         <!-- Grid container -->
@@ -173,7 +180,7 @@
                     <h5 class="text-uppercase mb-0">Contáctanos en nuestras redes sociales:</h5>
                     <!-- Inicio Redes Sociales -->
                     <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
-                        style="background-color: #6F6F6F; color: black;">
+                        style="background-color: #BDBDBD; color: black;">
                         <!-- Izquierda -->
                         <div class="me-5 d-none d-lg-block">
                         </div>
@@ -219,13 +226,16 @@
         <!-- Fin Grid container -->
 
         <!-- Inicio Copyright -->
-        <div class="text-center p-3" style="background-color: grey">
+        <div class="text-center p-3" style="background-color: #BDBDBD">
             © 2023 Copyright:
             <a class="text-white" href="https://rollingcodeschool.com/">Desarrollado para Rolling</a>
         </div>
         <!-- Fin Copyright -->
     </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/navBar.js"></script>
     <script src="../js/regristro.js"></script>
+    <script src="../Repositorio.js"></script>
+</body>
 
 </html>
